@@ -1,0 +1,49 @@
+feature,importance
+MonthlyIncome,222
+DailyRate,202
+Age,167
+DistanceFromHome,151
+HourlyRate,136
+MonthlyRate,132
+JobHopRate,132
+OverTime,119
+SatisfactionIndex,112
+IncomePerLevel,102
+RoleStagnation,97
+PercentSalaryHike,86
+PromotionStagnation,81
+JobInvolvement,79
+YearsWithCurrManager,72
+StockOptionLevel,66
+BusinessTravel_Travel_Frequently,57
+EnvironmentSatisfaction,56
+TotalWorkingYears,53
+RelationshipSatisfaction,52
+YearsAtCompany,50
+JobRole_Research Scientist,49
+WorkLifeBalance,45
+JobSatisfaction,44
+YearsSinceLastPromotion,44
+TrainingTimesLastYear,38
+NumCompaniesWorked,35
+Gender,30
+BusinessTravel_Travel_Rarely,29
+Education,28
+MaritalStatus_Single,28
+JobRole_Laboratory Technician,28
+Department_Research & Development,26
+YearsInCurrentRole,25
+EducationField_Medical,24
+JobRole_Sales Executive,22
+JobRole_Sales Representative,12
+MaritalStatus_Married,11
+Department_Sales,11
+EducationField_Marketing,11
+EducationField_Life Sciences,10
+EducationField_Other,7
+JobRole_Research Director,4
+JobRole_Manufacturing Director,3
+EducationField_Technical Degree,3
+JobRole_Manager,0
+JobRole_Human Resources,0
+PerformanceRating,0
