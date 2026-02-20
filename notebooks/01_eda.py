@@ -174,21 +174,25 @@ plt.show()
 cat_features = ['OverTime', 'MaritalStatus', 'JobRole', 'Department',
                 'BusinessTravel', 'Gender', 'EducationField']
 
-fig, axes = plt.subplots(2, 4, figsize=(22, 10))
-axes = axes.flatten()
+n_cols = 2
+n_rows = int(np.ceil(len(cat_features) / n_cols))
+fig, axes = plt.subplots(n_rows, n_cols, figsize=(24, 5 * n_rows))
+axes = np.array(axes).flatten()
 
 for i, col in enumerate(cat_features):
     rates = df.groupby(col)['Attrition'].apply(lambda x: (x == 'Yes').mean()).sort_values(ascending=True)
     colors = ['#E74C3C' if r > 0.20 else '#F39C12' if r > 0.15 else '#3498DB' for r in rates]
     rates.plot(kind='barh', ax=axes[i], color=colors)
-    axes[i].set_title(f'{col}별 퇴사율', fontsize=11, fontweight='bold')
-    axes[i].set_xlabel('퇴사율')
+    axes[i].set_title(f'{col}별 퇴사율', fontsize=13, fontweight='bold')
+    axes[i].set_xlabel('퇴사율', fontsize=11)
+    axes[i].tick_params(axis='both', labelsize=10)
     axes[i].axvline(x=df['Attrition'].apply(lambda x: x == 'Yes').mean(),
                     color='gray', linestyle='--', alpha=0.7, label='전체 평균')
     for j, (val, rate) in enumerate(rates.items()):
-        axes[i].text(rate + 0.005, j, f'{rate:.1%}', va='center', fontsize=9)
+        axes[i].text(rate + 0.005, j, f'{rate:.1%}', va='center', fontsize=10)
 
-axes[-1].set_visible(False)
+for j in range(len(cat_features), len(axes)):
+    axes[j].set_visible(False)
 
 plt.suptitle('범주형 변수별 퇴사율 (점선: 전체 평균 16.1%)', fontsize=16, fontweight='bold', y=1.02)
 plt.tight_layout()
@@ -201,8 +205,10 @@ ordinal_cols = ['EnvironmentSatisfaction', 'JobSatisfaction',
                 'RelationshipSatisfaction', 'WorkLifeBalance',
                 'JobInvolvement', 'JobLevel', 'StockOptionLevel', 'Education']
 
-fig, axes = plt.subplots(2, 4, figsize=(20, 10))
-axes = axes.flatten()
+n_cols = 2
+n_rows = int(np.ceil(len(ordinal_cols) / n_cols))
+fig, axes = plt.subplots(n_rows, n_cols, figsize=(24, 5 * n_rows))
+axes = np.array(axes).flatten()
 
 for i, col in enumerate(ordinal_cols):
     rates = df.groupby(col)['Attrition'].apply(lambda x: (x == 'Yes').mean())
@@ -214,11 +220,16 @@ for i, col in enumerate(ordinal_cols):
     ax2.axhline(y=0.161, color='gray', linestyle='--', alpha=0.5)
     ax2.set_ylim(0, max(rates.values) * 1.5)
 
-    axes[i].set_title(col, fontsize=10, fontweight='bold')
+    axes[i].set_title(col, fontsize=12, fontweight='bold')
     axes[i].set_xlabel('')
-    axes[i].set_ylabel('인원 수', fontsize=9)
-    ax2.set_ylabel('퇴사율', fontsize=9)
+    axes[i].set_ylabel('인원 수', fontsize=10)
+    ax2.set_ylabel('퇴사율', fontsize=10)
+    axes[i].tick_params(axis='both', labelsize=10)
+    ax2.tick_params(axis='y', labelsize=10)
     ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'{y:.0%}'))
+
+for j in range(len(ordinal_cols), len(axes)):
+    axes[j].set_visible(False)
 
 plt.suptitle('순서형 변수별 인원 수 & 퇴사율', fontsize=16, fontweight='bold', y=1.02)
 plt.tight_layout()
