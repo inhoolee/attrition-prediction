@@ -8,7 +8,7 @@ HR 분야 취업용 포트폴리오 프로젝트. IBM HR Analytics 데이터셋�
 - **데이터 처리**: pandas, numpy
 - **시각화**: matplotlib, seaborn
 - **모델링**: scikit-learn, xgboost, lightgbm
-- **환경**: Jupyter Notebook, venv (.venv)
+- **환경**: Jupyter Notebook, uv (.venv), Jupytext
 
 ## 데이터셋
 - **출처**: IBM HR Analytics Employee Attrition & Performance (Kaggle)
@@ -37,6 +37,8 @@ HR 분야 취업용 포트폴리오 프로젝트. IBM HR Analytics 데이터셋�
 - 노트북 셀 구조: 마크다운 헤더 → 코드 셀 → 결과 해석 마크다운
 - `src/` 모듈의 공통 함수를 노트북에서 import하여 재사용
 - 시각화 저장: `outputs/figures/`에 PNG로 저장
+- 노트북은 `.ipynb`와 `.py`(Jupytext `py:percent`) 페어로 관리
+- 노트북 수정 후 `uv run jupytext --sync notebooks/*.ipynb`로 동기화
 
 ## 목표 독자
 - HR 담당자 / 비기술 면접관

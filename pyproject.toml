@@ -1,0 +1,25 @@
+[project]
+name = "attrition-prediction"
+version = "0.1.0"
+description = "Employee attrition prediction analysis using IBM HR Analytics data."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "ipykernel",
+    "joblib",
+    "jupyter",
+    "jupytext",
+    "lightgbm",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "seaborn",
+    "xgboost",
+]
+
+[tool.uv]
+package = false
+
+[tool.jupytext]
+formats = "ipynb,py:percent"

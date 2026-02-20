@@ -9,8 +9,9 @@ build/
 # Virtual environment
 .venv/
 
-# Jupyter
+# Jupyter / Jupytext
 .ipynb_checkpoints/
+*.nbconvert.ipynb
 
 # Data (large files)
 data/raw/
@@ -22,6 +23,12 @@ outputs/models/
 
 # Environment
 .env
+.python-version
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # IDE
 .vscode/
