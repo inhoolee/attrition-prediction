@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Keep paired text notebooks up to date before each commit.
+if compgen -G "notebooks/*.ipynb" > /dev/null; then
+  uv run jupytext --sync notebooks/*.ipynb >/dev/null
+  git add notebooks/*.py 2>/dev/null || true
+fi
+
+# Enforce policy: .ipynb files are local-only and must not be committed.
+staged_ipynb="$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\\.ipynb$' || true)"
+if [[ -n "${staged_ipynb}" ]]; then
+  echo "pre-commit: .ipynb files are ignored in this repository."
+  echo "Remove them from staging and commit only paired .py notebooks:"
+  echo "${staged_ipynb}"
+  exit 1
+fi

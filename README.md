@@ -66,8 +66,11 @@ kaggle datasets download -d pavansubhasht/ibm-hr-analytics-attrition-dataset -p 
 # 5. Jupyter Notebook 실행
 uv run jupyter notebook
 
-# 6. 노트북(.ipynb <-> .py) 동기화
+# 6. 노트북(.ipynb <-> .py) 동기화 후 .py만 커밋
 uv run jupytext --sync notebooks/*.ipynb
+
+# 7. Git hook 활성화 (커밋 시 동기화 + .ipynb 커밋 차단)
+git config core.hooksPath .githooks
 ```
 
 ## 프로젝트 구조
@@ -78,13 +81,9 @@ attrition-prediction/
 │   ├── raw/                   # 원본 데이터셋
 │   └── processed/             # 전처리된 데이터
 ├── notebooks/
-│   ├── 01_eda.ipynb           # 탐색적 데이터 분석
 │   ├── 01_eda.py              # Jupytext pair (py:percent)
-│   ├── 02_preprocessing.ipynb # 데이터 전처리
 │   ├── 02_preprocessing.py    # Jupytext pair (py:percent)
-│   ├── 03_modeling.ipynb      # 모델 학습 & 평가
 │   ├── 03_modeling.py         # Jupytext pair (py:percent)
-│   ├── 04_insights.ipynb      # 비즈니스 인사이트
 │   └── 04_insights.py         # Jupytext pair (py:percent)
 ├── src/
 │   ├── data_loader.py         # 데이터 로딩 유틸리티

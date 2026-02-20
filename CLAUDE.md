@@ -11,10 +11,11 @@ HR 분야 취업용 포트폴리오 프로젝트. IBM HR Analytics 데이터셋�
 - **환경**: Jupyter Notebook, uv (.venv), Jupytext
 
 ## 데이터셋
-- **출처**: IBM HR Analytics Employee Attrition & Performance (Kaggle)
+- **출처**: IBM 인사 분석 직원 퇴사 및 성과 데이터셋 (Kaggle)
 - **파일**: `data/raw/WA_Fn-UseC_-HR-Employee-Attrition.csv`
 - **규모**: 1,470명 x 35개 컬럼
-- **타겟**: `Attrition` (Yes/No, 불균형 비율 약 16:84)
+- **설명**: 인구통계, 직무, 보상, 만족도, 경력 정보를 담은 인사 분석용 데이터
+- **타겟**: `Attrition` (예/아니오, 불균형 비율 약 16:84)
 - **주요 피처 카테고리**:
   - 인구통계: Age, Gender, MaritalStatus, DistanceFromHome
   - 직무: Department, JobRole, JobLevel, JobInvolvement

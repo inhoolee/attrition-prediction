@@ -12,6 +12,7 @@ build/
 # Jupyter / Jupytext
 .ipynb_checkpoints/
 *.nbconvert.ipynb
+*.ipynb
 
 # Data (large files)
 data/raw/
