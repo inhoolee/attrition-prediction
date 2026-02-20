@@ -40,9 +40,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 from src.data_loader import load_raw_data, PROCESSED_DIR
+from src.plot_style import apply_plot_style
 
-plt.rcParams['font.family'] = 'Apple SD Gothic Neo'
-plt.rcParams['axes.unicode_minus'] = False
+apply_plot_style(figsize=(12, 6))
 
 # %matplotlib inline
 

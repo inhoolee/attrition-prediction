@@ -9,6 +9,7 @@ dependencies = [
     "joblib",
     "jupyter",
     "jupytext",
+    "koreanize-matplotlib",
     "lightgbm",
     "matplotlib",
     "numpy",

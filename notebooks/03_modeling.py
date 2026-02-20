@@ -49,10 +49,9 @@ import joblib
 
 from src.data_loader import PROCESSED_DIR
 from src.evaluation import evaluate_model, plot_confusion_matrix
+from src.plot_style import apply_plot_style
 
-plt.rcParams['font.family'] = 'Apple SD Gothic Neo'
-plt.rcParams['axes.unicode_minus'] = False
-plt.rcParams['figure.figsize'] = (12, 6)
+apply_plot_style(figsize=(12, 6))
 
 RANDOM_STATE = 42
 CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)

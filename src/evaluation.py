@@ -12,6 +12,7 @@ from sklearn.metrics import (
     classification_report,
     ConfusionMatrixDisplay,
 )
+from src.plot_style import apply_plot_style
 
 
 def evaluate_model(y_true: np.ndarray, y_pred: np.ndarray, y_prob: np.ndarray | None = None) -> dict:
@@ -52,6 +53,7 @@ def plot_confusion_matrix(y_true: np.ndarray, y_pred: np.ndarray,
     if labels is None:
         labels = ['재직 (0)', '퇴사 (1)']
 
+    apply_plot_style(figsize=(6, 5))
     fig, ax = plt.subplots(figsize=(6, 5))
     cm = confusion_matrix(y_true, y_pred)
     disp = ConfusionMatrixDisplay(cm, display_labels=labels)

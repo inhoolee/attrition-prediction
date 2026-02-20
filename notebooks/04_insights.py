@@ -39,11 +39,9 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from src.data_loader import load_raw_data, PROCESSED_DIR
+from src.plot_style import apply_plot_style
 
-plt.rcParams['font.family'] = 'Apple SD Gothic Neo'
-plt.rcParams['axes.unicode_minus'] = False
-plt.rcParams['figure.figsize'] = (12, 6)
-sns.set_theme(style='whitegrid', font='Apple SD Gothic Neo')
+apply_plot_style(use_seaborn_theme=True, figsize=(12, 6))
 
 COLORS_RISK = {'고위험': '#E74C3C', '중위험': '#F39C12', '저위험': '#27AE60'}
 

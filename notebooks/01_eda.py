@@ -29,12 +29,10 @@ import seaborn as sns
 from scipy import stats
 
 from src.data_loader import load_raw_data
+from src.plot_style import apply_plot_style
 
 # 시각화 기본 설정
-plt.rcParams['figure.figsize'] = (12, 6)
-plt.rcParams['font.family'] = 'Apple SD Gothic Neo'
-plt.rcParams['axes.unicode_minus'] = False
-sns.set_theme(style='whitegrid', font='Apple SD Gothic Neo')
+apply_plot_style(use_seaborn_theme=True, figsize=(12, 6))
 
 # 색상 팔레트
 COLORS = {'Yes': '#E74C3C', 'No': '#3498DB'}
@@ -95,7 +93,16 @@ axes[0].pie(counts, labels=['재직 (No)', '퇴사 (Yes)'], autopct='%1.1f%%',
 axes[0].set_title('퇴사 여부 비율', fontsize=15, fontweight='bold')
 
 # 퇴사 건수 (막대)
-sns.countplot(data=df, x='Attrition', palette=COLORS, ax=axes[1], order=['No', 'Yes'])
+sns.countplot(
+    data=df,
+    x='Attrition',
+    hue='Attrition',
+    order=['No', 'Yes'],
+    hue_order=['No', 'Yes'],
+    palette=COLORS,
+    legend=False,
+    ax=axes[1],
+)
 for p in axes[1].patches:
     axes[1].annotate(f'{int(p.get_height())}명',
                      (p.get_x() + p.get_width() / 2., p.get_height()),
@@ -140,7 +147,17 @@ fig, axes = plt.subplots(2, 4, figsize=(20, 10))
 axes = axes.flatten()
 
 for i, col in enumerate(key_num_cols):
-    sns.boxplot(data=df, x='Attrition', y=col, palette=COLORS, ax=axes[i], order=['No', 'Yes'])
+    sns.boxplot(
+        data=df,
+        x='Attrition',
+        y=col,
+        hue='Attrition',
+        order=['No', 'Yes'],
+        hue_order=['No', 'Yes'],
+        palette=COLORS,
+        legend=False,
+        ax=axes[i],
+    )
     axes[i].set_title(col, fontsize=12, fontweight='bold')
     axes[i].set_xlabel('')
 
