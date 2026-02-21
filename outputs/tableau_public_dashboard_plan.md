@@ -6,6 +6,7 @@
 - 공개 채널: Tableau Public
 - 대상 독자: 채용 담당자, HR 리더, 비기술 이해관계자
 - 핵심 메시지:
+
 1. 퇴사는 특정 부서/직무/근속 구간에 집중된다.
 2. 주요 드라이버(야근, 소득, 성장 정체, 만족도)가 명확하다.
 3. 위험군을 선별하면 리텐션 개입 우선순위를 정할 수 있다.
@@ -109,22 +110,26 @@ ELSE "10y+" END
 
 - 목적: 한 화면에서 조직 퇴사 상태 요약
 - 권장 시트:
+
 1. KPI 카드 5개: Headcount, Attrition Count, Attrition Rate, High Risk Count, High Risk Rate
 2. 부서별 퇴사율 막대: `Department Label` x `Attrition Rate`
 3. 직무별 퇴사율 막대: 직무 복원 필드 x `Attrition Rate`
 4. 근속구간별 퇴사율: `Tenure Band` x `Attrition Rate`
 5. 연령대별 퇴사율: `Age Band` x `Attrition Rate`
+
 - 필터: Department, Gender, OverTime
 
 ## Tab B. Driver Deep Dive
 
 - 목적: 퇴사 유발 요인을 설명 가능한 형태로 제시
 - 권장 시트:
+
 1. Feature Importance Top 10: `feature_importance.csv`
 2. 야근 여부별 퇴사율: `OverTime Label` x `Attrition Rate`
 3. 소득구간별 퇴사율: `Income Band` x `Attrition Rate`
 4. 만족도 지표 비교: `SatisfactionIndex`, `JobInvolvement`, `WorkLifeBalance`
 5. 출장빈도 x 결혼상태 Heatmap: `BusinessTravel Label` x `MaritalStatus Label` with `Attrition Rate`
+
 - 툴팁 문구 예시:
 `퇴사율 {AVG([Attrition]):.1%} | 인원 {COUNT([Attrition])}`
 
@@ -132,11 +137,14 @@ ELSE "10y+" END
 
 - 목적: 개입 우선순위와 액션 포인트 제시
 - 권장 시트:
+
 1. Risk Scatter: X=`YearsAtCompany`, Y=`MonthlyIncome`, Color=`Risk_Level`, Size=`Predict_Prob`
 2. 위험군 프로파일 테이블: Risk_Level별 인원, 평균소득, 평균만족도
 3. 부서 액션 매트릭스: X=`Attrition Rate`, Y=`COUNT([Attrition])`, Color=`Department Label`
 4. 모델 성능 카드: `model_comparison.csv`의 Recall/F1/AUC 하이라이트
+
 - 액션 텍스트 카드:
+
 1. 야근 집단 관리
 2. 초기 근속(0-2년) 온보딩 강화
 3. 저소득 + 고위험군 선제 면담
@@ -146,10 +154,13 @@ ELSE "10y+" END
 - Desktop 기준 크기: `1366 x 768` 또는 `1400 x 900`
 - 모바일 레이아웃 별도 구성 (핵심 KPI + 2개 차트만)
 - 색상:
+
 1. Attrition Yes: `#E74C3C`
 2. Attrition No: `#3498DB`
 3. Risk High/Med/Low: `#E74C3C / #F39C12 / #27AE60`
+
 - 가독성:
+
 1. 시트당 핵심 질문 1개만
 2. 축 정렬/단위(%, 명) 일관 유지
 3. 과도한 필터 노출 금지 (성능/UX 저하)
