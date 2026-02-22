@@ -28,7 +28,8 @@ A skill is a set of local instructions to follow that is stored in a `SKILL.md` 
 - Safety and fallback: If a skill can't be applied cleanly (missing files, unclear instructions), state the issue, pick the next-best approach, and continue.
 
 ## Project Rule: Tableau Dashboard Requests
-- When the request is about Tableau dashboard/tab/chart/KPI/filter creation or review, always run `$tableau-attrition-verifier` first.
+- When the request is about Tableau dashboard/tab/chart/KPI/filter creation or review, run `$tableau-attrition-verifier` first.
+- Exception: if the request is design-only (for example theme, fonts, colors, spacing, layout polish, tooltip styling) and does not define or modify data logic, KPIs, filters, or calculations, skip `$tableau-attrition-verifier`.
 - Before giving build steps, run:
   - `python3 /Users/ho/Workspace/attrition-prediction/.codex/skills/tableau-attrition-verifier/scripts/validate_attrition_csv.py --csv /Users/ho/Workspace/attrition-prediction/data/processed/attrition_clean.csv`
 - Present results in verification gates (`Gate 1` to `Gate 4`) and obtain user confirmation between major gates for substantial tasks.
