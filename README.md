@@ -60,7 +60,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv sync
 
 # 4. 데이터셋 다운로드 (Kaggle API 필요)
-kaggle datasets download -d pavansubhasht/ibm-hr-analytics-attrition-dataset -p data/raw/ --unzip
+mkdir -p data/raw
+uvx --from kaggle kaggle datasets download -d pavansubhasht/ibm-hr-analytics-attrition-dataset -p data/raw/ --unzip
 
 # 5. Jupyter Notebook 실행
 uv run jupyter notebook

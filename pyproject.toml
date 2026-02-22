@@ -14,6 +14,7 @@ dependencies = [
     "matplotlib",
     "numpy",
     "pandas",
+    "python-dotenv>=1.2.1",
     "scikit-learn",
     "seaborn",
     "xgboost",
