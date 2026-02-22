@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tableau Attrition Verifier"
+  short_description: "Verify attrition Tableau specs before build steps"
+  default_prompt: "Validate attrition data schema and KPI reproducibility first, then provide gated Tableau instructions."
